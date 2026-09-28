@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARJUN // Personal Innovation Laboratory | BTech Technologist & Startup Experimenter</title>
+  <meta name="description" content="Personal Innovation Laboratory of Arjun — BTech student, software engineer, and startup experimenter testing hypotheses across AI, distributed systems, and venture prototypes.">
+  <meta name="keywords" content="Innovation Laboratory, Portfolio, BTech Student, AI Engineer, Startup Experiments, Full Stack, Software Development">
+  <meta name="author" content="Arjun Mehta">
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="ARJUN // Personal Innovation Laboratory">
+  <meta property="og:description" content="Engineering the future through empirical code, AI experiments, and venture prototypes.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,25 95,75 50,95 5,75 5,25' fill='%23090d16' stroke='%2300f5d4' stroke-width='6'/><circle cx='50' cy='50' r='18' fill='%2300f5d4'/><line x1='50' y1='5' x2='50' y2='95' stroke='%2300f5d4' stroke-width='2' stroke-dasharray='4'/></svg>">
+</head>
+<body>
+  <!-- Ambient Audio Indicator & Sound System -->
+  <div id="ambient-audio-anchor" aria-hidden="true"></div>
+
+  <!-- Background Canvas Grid & Particle Swarm -->
+  <canvas id="lab-canvas" class="lab-canvas" aria-hidden="true"></canvas>
+  <div class="lab-scanlines" aria-hidden="true"></div>
+  <div class="lab-vignette" aria-hidden="true"></div>
+
+  <!-- Top Laboratory Navigation HUD -->
+  <header class="lab-hud-header" id="header">
+    <div class="hud-container">
+      <div class="lab-brand">
+        <a href="#hero" class="brand-link">
+          <div class="brand-symbol">
+            <span class="symbol-ring"></span>
+            <span class="symbol-core"></span>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">ARJUN.LAB</span>
+            <span class="brand-sub">FACILITY-01 // BTECH CSE</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="lab-nav" id="main-nav" aria-label="Laboratory Chambers">
+        <ul class="nav-list">
+          <li><a href="#lab-profile" class="nav-item" data-section="lab-profile"><span class="nav-code">01</span> PROFILE</a></li>
+          <li><a href="#experiments" class="nav-item" data-section="experiments"><span class="nav-code">02</span> SANDBOX</a></li>
+          <li><a href="#projects" class="nav-item" data-section="projects"><span class="nav-code">03</span> PROJECTS</a></li>
+          <li><a href="#skills" class="nav-item" data-section="skills"><span class="nav-code">04</span> APPARATUS</a></li>
+          <li><a href="#research" class="nav-item" data-section="research"><span class="nav-code">05</span> RESEARCH</a></li>
+          <li><a href="#ideas" class="nav-item" data-section="ideas"><span class="nav-code">06</span> INCUBATOR</a></li>
+          <li><a href="#future" class="nav-item" data-section="future"><span class="nav-code">07</span> HORIZON</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-controls">
+        <!-- Audio Feedback Toggle -->
+        <button id="audio-toggle-btn" class="hud-btn" title="Toggle Lab Sound FX" aria-label="Toggle Laboratory Sound FX">
+          <svg class="hud-icon audio-on" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+          <svg class="hud-icon audio-off hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <span class="btn-label">SFX</span>
+        </button>
+
+        <!-- Theme Toggle (Cleanroom Light / Obsidian Dark) -->
+        <button id="theme-toggle-btn" class="hud-btn" title="Switch Chamber Illumination" aria-label="Toggle Light/Dark Theme">
+          <svg class="hud-icon icon-sun hidden" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="hud-icon icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <span class="btn-label" id="theme-label">DARK</span>
+        </button>
+
+        <!-- Terminal Trigger -->
+        <button id="terminal-trigger-btn" class="hud-btn terminal-btn" title="Open Lab CLI Terminal" aria-label="Open Laboratory CLI">
+          <span class="cli-prompt-icon">&gt;_</span>
+          <span class="btn-label">CLI</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-btn" class="hud-btn mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Telemetry Ticker Strip -->
+    <div class="hud-ticker">
+      <div class="ticker-content">
+        <span class="ticker-item"><span class="dot-live"></span> SYSTEM: ONLINE</span>
+        <span class="ticker-divider">//</span>
+        <span class="ticker-item">SPECIMEN: BTECH CSE INNOVATION BENCH</span>
+        <span class="ticker-divider">//</span>
+        <span class="ticker-item">METHOD: HYPOTHESIS-DRIVEN ITERATION</span>
+        <span class="ticker-divider">//</span>
+        <span class="ticker-item">ACTIVE PROTOCOLS: 18</span>
+        <span class="ticker-divider">//</span>
+        <span class="ticker-item">STARTUP INCUBATION RATE: 3 MVPs ACTIVE</span>
+        <span class="ticker-divider">//</span>
+        <span class="ticker-item">LOC: BANGALORE / HYBRID DISCOVERY HUB</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Laboratory Workspace -->
+  <main class="lab-main" id="main-content">
+
+    <!-- ==================== HERO CHAMBER ==================== -->
+    <section class="chamber-hero" id="hero">
+      <div class="chamber-container">
+        <div class="hero-grid">
+          
+          <div class="hero-core-info">
+            <div class="hero-badge-tag">
+              <span class="badge-pulse"></span>
+              <span class="badge-text">FACILITY-01 • PERSONAL INNOVATION LABORATORY</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="hero-greet">INIT PROTOCOL:</span>
+              <span class="hero-name-glitch" data-text="ARJUN MEHTA">ARJUN MEHTA</span>
+              <span class="hero-role">BTech Student &bull; Software Technologist &bull; Venture Experimenter</span>
+            </h1>
+
+            <p class="hero-statement">
+              Welcome to my digital testing ground. I treat software engineering, artificial intelligence, and startup building as an <span class="highlight-cyan">empirical science</span>. Here, every project begins with a real-world friction point, formulates a testable hypothesis, deploys rapid code, and measures quantitative outcomes.
+            </p>
+
+            <!-- Quick Telemetry HUD -->
+            <div class="hero-metrics-bar">
+              <div class="metric-card">
+                <div class="metric-val" id="metric-exp-count">24+</div>
+                <div class="metric-lbl">Hypotheses Tested</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val" id="metric-code-commits">1,420+</div>
+                <div class="metric-lbl">Lab Commits</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val">3</div>
+                <div class="metric-lbl">Active MVPs</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-val text-cyan">99.4%</div>
+                <div class="metric-lbl">Curiosity Index</div>
+              </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary" id="btn-explore-projects">
+                <span class="btn-glow"></span>
+                <span class="btn-text">INSPECT EXPERIMENTS</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#experiments" class="btn btn-secondary" id="btn-launch-sandbox">
+                <span class="btn-text">LAUNCH LIVE SANDBOX</span>
+                <span class="btn-tag">INTERACTIVE</span>
+              </a>
+              <a href="#ideas" class="btn btn-ghost" id="btn-incubator">
+                <span class="btn-text">VIEW INCUBATOR</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Right: Interactive Holographic Researcher Dossier Card -->
+          <div class="hero-dossier-wrapper">
+            <div class="dossier-card" id="hologram-dossier">
+              <div class="dossier-header">
+                <div class="dossier-id-chip">
+                  <span class="chip-dot"></span> ID: ARJ-2026-BTECH
+                </div>
+                <div class="dossier-status">
+                  <span class="status-indicator"></span> LAB CLEARANCE: L4
+                </div>
+              </div>
+
+              <div class="dossier-photo-frame">
+                <img src="assets/researcher.jpg" alt="Arjun Mehta in futuristic Innovation Laboratory with holographic interfaces" class="researcher-img" loading="eager">
+                <div class="photo-overlay-hud">
+                  <div class="hud-corner top-left"></div>
+                  <div class="hud-corner top-right"></div>
+                  <div class="hud-corner bottom-left"></div>
+                  <div class="hud-corner bottom-right"></div>
+                  <div class="hud-scanner-bar"></div>
+                  <div class="hud-data-tag">AI // DISTRIBUTED // STARTUPS</div>
+                </div>
+              </div>
+
+              <div class="dossier-body">
+                <div class="dossier-line">
+                  <span class="dl-key">PRIMARY FOCUS:</span>
+                  <span class="dl-val text-cyan">Next-Gen Software & Intelligent Systems</span>
+                </div>
+                <div class="dossier-line">
+                  <span class="dl-key">DEGREE:</span>
+                  <span class="dl-val">BTech in Computer Science & Engineering</span>
+                </div>
+                <div class="dossier-line">
+                  <span class="dl-key">CORE PHILOSOPHY:</span>
+                  <span class="dl-val">"Falsify early, build high-velocity prototypes"</span>
+                </div>
+                <div class="dossier-line">
+                  <span class="dl-key">STATUS:</span>
+                  <span class="dl-val text-emerald">Available for High-Impact Roles & Co-Founding</span>
+                </div>
+              </div>
+
+              <div class="dossier-footer">
+                <div class="bar-code-strip" aria-hidden="true"></div>
+                <div class="dossier-btn-row">
+                  <a href="#lab-profile" class="dossier-btn">Dossier Details &darr;</a>
+                  <a href="#contact" class="dossier-btn highlight">Transmit Signal &rarr;</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 1: LAB PROFILE ==================== -->
+    <section class="chamber-section" id="lab-profile">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">01</span> // DOSSIER & OPERATIONAL DIRECTIVE</div>
+          <h2 class="section-title">Lab Profile & Researcher Bio</h2>
+          <p class="section-lead">The mission, operational principles, and academic trajectory driving the innovation laboratory.</p>
+        </div>
+
+        <div class="profile-grid">
+          
+          <!-- Column A: Researcher Biography & Mission -->
+          <div class="profile-card glass-panel">
+            <div class="panel-header">
+              <span class="panel-title-text">RESEARCHER DIRECTIVE</span>
+              <span class="panel-badge">PROFILE // 01-A</span>
+            </div>
+            <div class="panel-content">
+              <h3 class="panel-heading">Engineering at the Bleeding Edge of Curiosity</h3>
+              <p class="panel-paragraph">
+                I am a <strong>Bachelor of Technology (BTech) in Computer Science</strong> student who sees code not just as a tool for automation, but as a crucible for experimentation and venture discovery.
+              </p>
+              <p class="panel-paragraph">
+                Rather than building cookie-cutter clones, my laboratory explores real technical frontiers: distributed edge caching, self-optimizing micro-services, generative AI orchestration pipelines, and hyper-lean startup minimum viable products (MVPs).
+              </p>
+
+              <div class="philosophy-points">
+                <div class="point-item">
+                  <div class="point-icon"><span class="icon-glyph">&Delta;</span></div>
+                  <div class="point-text">
+                    <strong>Hypothesis-First Engineering:</strong> Every line of code exists to validate or invalidate an assumption before scaling resources.
+                  </div>
+                </div>
+                <div class="point-item">
+                  <div class="point-icon"><span class="icon-glyph">&infin;</span></div>
+                  <div class="point-text">
+                    <strong>Extreme Iteration Velocity:</strong> Rapid 48-hour prototype cycles to test customer willingness, technical feasibility, and latency bounds.
+                  </div>
+                </div>
+                <div class="point-item">
+                  <div class="point-icon"><span class="icon-glyph">&Sigma;</span></div>
+                  <div class="point-text">
+                    <strong>Commercial Transmutation:</strong> Synthesizing raw algorithms into real-world business models and scalable startup products.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column B: Academic & Track Record Matrix -->
+          <div class="profile-card glass-panel">
+            <div class="panel-header">
+              <span class="panel-title-text">FACILITY TELEMETRY & TRAJECTORY</span>
+              <span class="panel-badge">EDUCATION & BACKGROUND</span>
+            </div>
+            <div class="panel-content">
+              
+              <div class="trajectory-block">
+                <div class="trajectory-icon-col">
+                  <div class="trajectory-node active"></div>
+                  <div class="trajectory-line"></div>
+                </div>
+                <div class="trajectory-info">
+                  <span class="traj-year">2023 - 2027 (EXPECTED)</span>
+                  <h4 class="traj-title">BTech in Computer Science & Engineering</h4>
+                  <p class="traj-desc">Rigorous foundation in Distributed Systems, Algorithms, Deep Learning, Computer Networks, and Database Internals.</p>
+                  <div class="traj-tags">
+                    <span class="mini-tag">GPA: 8.9/10</span>
+                    <span class="mini-tag">Lab Lead</span>
+                    <span class="mini-tag">Hackathon Finalist x4</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="trajectory-block">
+                <div class="trajectory-icon-col">
+                  <div class="trajectory-node"></div>
+                  <div class="trajectory-line"></div>
+                </div>
+                <div class="trajectory-info">
+                  <span class="traj-year">2025 - PRESENT</span>
+                  <h4 class="traj-title">Startup Founder & Venture Experimenter</h4>
+                  <p class="traj-desc">Founded 2 micro-SaaS prototypes with active pilot users; running empirical A/B user acquisition tests and product telemetry.</p>
+                  <div class="traj-tags">
+                    <span class="mini-tag">Micro-SaaS</span>
+                    <span class="mini-tag">Product Discovery</span>
+                    <span class="mini-tag">GTM Tests</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="trajectory-block">
+                <div class="trajectory-icon-col">
+                  <div class="trajectory-node"></div>
+                </div>
+                <div class="trajectory-info">
+                  <span class="traj-year">2024 - PRESENT</span>
+                  <h4 class="traj-title">Open-Source Synthesis & Benchmarking</h4>
+                  <p class="traj-desc">Contributing low-overhead utility benchmarks, vector index experiments, and developer tooling to the ecosystem.</p>
+                </div>
+              </div>
+
+              <!-- Real-Time Activity Log Feed -->
+              <div class="live-activity-box">
+                <div class="box-title"><span class="pulse-indicator"></span> LAB EVENT DISPATCH (RECENT AUDIT):</div>
+                <ul class="activity-feed-list" id="activity-feed">
+                  <li><span class="log-time">TODAY</span> <span class="log-desc">Benchmarked vector quantization on edge node: +34% throughput</span></li>
+                  <li><span class="log-time">2D AGO</span> <span class="log-desc">Refactored WebSocket orchestration pipeline for zero-jitter telemetry</span></li>
+                  <li><span class="log-time">5D AGO</span> <span class="log-desc">Interviewed 14 pilot users for VenturePulse customer validation</span></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: EXPERIMENTS (INTERACTIVE TEST BENCH) ==================== -->
+    <section class="chamber-section" id="experiments">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">02</span> // INTERACTIVE TEST BENCH</div>
+          <h2 class="section-title">Micro-Experiments & Live Sandbox</h2>
+          <p class="section-lead">Don't just read about code — execute real-time laboratory simulations right inside this chamber.</p>
+        </div>
+
+        <!-- Sandbox Tabs -->
+        <div class="sandbox-tabs-nav" role="tablist">
+          <button class="sandbox-tab active" data-tab="tab-neural" role="tab" id="tab-btn-neural" aria-selected="true" aria-controls="tab-neural">
+            <span class="tab-indicator"></span>
+            EXPERIMENT 01: NEURAL CLUSTER CONVERGENCE
+          </button>
+          <button class="sandbox-tab" data-tab="tab-stress" role="tab" id="tab-btn-stress" aria-selected="false" aria-controls="tab-stress">
+            <span class="tab-indicator"></span>
+            EXPERIMENT 02: HIGH-THROUGHPUT STRESS TEST
+          </button>
+          <button class="sandbox-tab" data-tab="tab-matrix" role="tab" id="tab-btn-matrix" aria-selected="false" aria-controls="tab-matrix">
+            <span class="tab-indicator"></span>
+            EXPERIMENT 03: STARTUP FEASIBILITY SYNTHESIZER
+          </button>
+        </div>
+
+        <!-- Sandbox Tab Panels -->
+        <div class="sandbox-deck">
+          
+          <!-- Experiment 1: Neural Vector Cluster Simulator -->
+          <div class="sandbox-panel active" id="tab-neural" role="tabpanel" aria-labelledby="tab-btn-neural">
+            <div class="sandbox-grid">
+              
+              <div class="sandbox-controls glass-panel">
+                <div class="panel-header">
+                  <span class="panel-title-text">SIMULATION PARAMETERS</span>
+                  <span class="panel-badge">EXP-SIM-101</span>
+                </div>
+                <div class="panel-content">
+                  <p class="sandbox-desc">
+                    Simulate how vector embeddings cluster into latent semantic spaces. Adjust learning rate, centroid count, and noise injection to observe convergence dynamics.
+                  </p>
+
+                  <div class="control-group">
+                    <div class="ctrl-header">
+                      <label for="slider-lr">Learning Velocity (&alpha;):</label>
+                      <span class="ctrl-val" id="val-lr">0.05</span>
+                    </div>
+                    <input type="range" id="slider-lr" min="0.01" max="0.2" step="0.01" value="0.05" class="lab-slider">
+                  </div>
+
+                  <div class="control-group">
+                    <div class="ctrl-header">
+                      <label for="slider-centroids">Centroid Density (K):</label>
+                      <span class="ctrl-val" id="val-centroids">4</span>
+                    </div>
+                    <input type="range" id="slider-centroids" min="2" max="6" step="1" value="4" class="lab-slider">
+                  </div>
+
+                  <div class="control-group">
+                    <div class="ctrl-header">
+                      <label for="slider-noise">Entropy / Synthetic Noise:</label>
+                      <span class="ctrl-val" id="val-noise">15%</span>
+                    </div>
+                    <input type="range" id="slider-noise" min="0" max="50" step="5" value="15" class="lab-slider">
+                  </div>
+
+                  <div class="sandbox-btn-group">
+                    <button class="btn btn-primary btn-sm" id="btn-run-neural-sim">
+                      <span>RUN CONVERGENCE EPOCH</span>
+                    </button>
+                    <button class="btn btn-secondary btn-sm" id="btn-reset-neural-sim">
+                      <span>RESET TESTBED</span>
+                    </button>
+                  </div>
+
+                  <div class="sim-telemetry-readout">
+                    <div class="readout-item">
+                      <span class="r-k">EPOCH:</span>
+                      <span class="r-v" id="neural-epoch">142</span>
+                    </div>
+                    <div class="readout-item">
+                      <span class="r-k">LOSS:</span>
+                      <span class="r-v text-cyan" id="neural-loss">0.0142</span>
+                    </div>
+                    <div class="readout-item">
+                      <span class="r-k">CONVERGENCE:</span>
+                      <span class="r-v text-emerald" id="neural-status">OPTIMAL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Canvas Display -->
+              <div class="sandbox-display glass-panel">
+                <div class="display-header">
+                  <div class="display-title">
+                    <span class="dot-green"></span> LATENT VECTOR SPACE // VISUALIZER
+                  </div>
+                  <div class="display-coords" id="canvas-cursor-coords">X: 0.00 | Y: 0.00</div>
+                </div>
+                <div class="canvas-wrapper">
+                  <canvas id="neural-canvas" width="600" height="380"></canvas>
+                  <div class="canvas-watermark">ARJUN.LAB // NEURAL SIM V2.4</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Experiment 2: High-Throughput Stress Test -->
+          <div class="sandbox-panel" id="tab-stress" role="tabpanel" aria-labelledby="tab-btn-stress">
+            <div class="sandbox-grid">
+              
+              <div class="sandbox-controls glass-panel">
+                <div class="panel-header">
+                  <span class="panel-title-text">PIPELINE LOAD INJECTOR</span>
+                  <span class="panel-badge">EXP-SIM-102</span>
+                </div>
+                <div class="panel-content">
+                  <p class="sandbox-desc">
+                    Stress-test client-side serialization and packet streaming. Measure frames-per-second, memory allocation, and synthetic event throughput.
+                  </p>
+
+                  <div class="control-group">
+                    <div class="ctrl-header">
+                      <label for="slider-concurrency">Concurrent Workers / Streams:</label>
+                      <span class="ctrl-val" id="val-concurrency">500</span>
+                    </div>
+                    <input type="range" id="slider-concurrency" min="100" max="3000" step="100" value="500" class="lab-slider">
+                  </div>
+
+                  <div class="sandbox-btn-group">
+                    <button class="btn btn-primary btn-sm" id="btn-start-stress">
+                      <span id="stress-btn-text">INJECT STRESS LOAD</span>
+                    </button>
+                    <button class="btn btn-secondary btn-sm" id="btn-clear-stress">
+                      <span>PURGE BUFFER</span>
+                    </button>
+                  </div>
+
+                  <div class="sim-telemetry-readout">
+                    <div class="readout-item">
+                      <span class="r-k">RENDER FPS:</span>
+                      <span class="r-v text-emerald" id="stress-fps">60.0</span>
+                    </div>
+                    <div class="readout-item">
+                      <span class="r-k">OPS / SEC:</span>
+                      <span class="r-v text-cyan" id="stress-ops">42,500</span>
+                    </div>
+                    <div class="readout-item">
+                      <span class="r-k">LATENCY JITTER:</span>
+                      <span class="r-v" id="stress-jitter">1.2ms</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stress Test Visualizer -->
+              <div class="sandbox-display glass-panel">
+                <div class="display-header">
+                  <div class="display-title">
+                    <span class="dot-amber"></span> PACKET FLOW & BUFFER OSCILLOSCOPE
+                  </div>
+                  <div class="display-coords" id="stress-processed-count">PROCESSED: 0 PACKETS</div>
+                </div>
+                <div class="canvas-wrapper">
+                  <canvas id="stress-canvas" width="600" height="380"></canvas>
+                  <div class="canvas-watermark">ARJUN.LAB // TELEMETRY OSCILLOSCOPE</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Experiment 3: Startup Feasibility Synthesizer -->
+          <div class="sandbox-panel" id="tab-matrix" role="tabpanel" aria-labelledby="tab-btn-matrix">
+            <div class="matrix-card glass-panel">
+              <div class="panel-header">
+                <span class="panel-title-text">VENTURE HYPOTHESIS & MOAT SYNTHESIZER</span>
+                <span class="panel-badge">EXP-SIM-103</span>
+              </div>
+              <div class="panel-content">
+                <p class="sandbox-desc">
+                  Select your product parameters to test how this laboratory formulates startup hypotheses, evaluates defensibility, and designs a 48-hour validation sprint.
+                </p>
+
+                <div class="matrix-inputs-row">
+                  <div class="matrix-select-group">
+                    <label for="select-target-sector" class="sel-label">TARGET SECTOR / PROBLEM:</label>
+                    <select id="select-target-sector" class="lab-select">
+                      <option value="developer-tools">Developer Tooling & Cloud Latency</option>
+                      <option value="autonomous-agents">Enterprise Multi-Agent Orchestration</option>
+                      <option value="edge-iot">Edge Hardware AI & Drone Logistics</option>
+                      <option value="creator-economy">Micro-Creator Monetization & Direct Value</option>
+                    </select>
+                  </div>
+
+                  <div class="matrix-select-group">
+                    <label for="select-tech-wedge" class="sel-label">TECHNOLOGICAL MOAT / WEDGE:</label>
+                    <select id="select-tech-wedge" class="lab-select">
+                      <option value="vector-cache">Sub-millisecond Vector In-Memory Index</option>
+                      <option value="local-slm">On-Device 3B Small Language Model (SLM)</option>
+                      <option value="p2p-mesh">Zero-Server WebRTC P2P Mesh Fabric</option>
+                      <option value="zero-knowledge">Client-Side ZK Proof Verification</option>
+                    </select>
+                  </div>
+
+                  <div class="matrix-select-group">
+                    <label for="select-business-model" class="sel-label">MONETIZATION ENGINE:</label>
+                    <select id="select-business-model" class="lab-select">
+                      <option value="usage-api">Usage-Based API Metering ($/million ops)</option>
+                      <option value="seat-saas">B2B Tiered Per-Seat Subscription</option>
+                      <option value="open-core">Open Core with Enterprise Compliance Add-on</option>
+                      <option value="rev-share">Performance / Value-Generated Revenue Share</option>
+                    </select>
+                  </div>
+
+                  <div class="matrix-action-cell">
+                    <button class="btn btn-primary" id="btn-synthesize-venture">
+                      <span>SYNTHESIZE PROTOCOL</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Generated Output Chamber -->
+                <div class="matrix-result-chamber" id="venture-result-chamber">
+                  <div class="result-score-row">
+                    <div class="score-card">
+                      <span class="sc-title">TECHNICAL MOAT</span>
+                      <span class="sc-val text-cyan" id="sc-moat">92 / 100</span>
+                      <div class="sc-bar"><div class="sc-bar-fill" id="bar-moat" style="width: 92%"></div></div>
+                    </div>
+                    <div class="score-card">
+                      <span class="sc-title">PROTOTYPE VELOCITY</span>
+                      <span class="sc-val text-emerald" id="sc-velocity">48 HOURS</span>
+                      <div class="sc-bar"><div class="sc-bar-fill" id="bar-velocity" style="width: 88%"></div></div>
+                    </div>
+                    <div class="score-card">
+                      <span class="sc-title">ESTIMATED CAC/LTV</span>
+                      <span class="sc-val text-amber" id="sc-cac">1 : 4.8</span>
+                      <div class="sc-bar"><div class="sc-bar-fill" id="bar-cac" style="width: 76%"></div></div>
+                    </div>
+                  </div>
+
+                  <div class="synthesized-protocol-box">
+                    <div class="protocol-header">
+                      <span class="p-flag">&gt; GENERATED EXPERIMENT PROTOCOL</span>
+                      <span class="p-id" id="synth-protocol-id">EXP-VENTURE-784</span>
+                    </div>
+                    <div class="protocol-content-body" id="synth-protocol-body">
+                      <!-- Populated dynamically via JS -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: PROJECTS (SCIENTIFIC EXPERIMENT CARDS) ==================== -->
+    <section class="chamber-section" id="projects">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">03</span> // VALIDATED SPECIMENS & PROTOTYPES</div>
+          <h2 class="section-title">Laboratory Projects</h2>
+          <p class="section-lead">
+            Every major project is documented with rigorous scientific methodology: 
+            <strong>Problem</strong>, <strong>Hypothesis</strong>, <strong>Solution</strong>, and <strong>Result</strong>.
+          </p>
+        </div>
+
+        <!-- Project Controls / Filter Toolbar -->
+        <div class="filter-toolbar glass-panel">
+          <div class="filter-group">
+            <span class="filter-label">FILTER STATUS:</span>
+            <div class="filter-buttons" id="status-filters">
+              <button class="filter-btn active" data-filter="all">ALL (6)</button>
+              <button class="filter-btn" data-filter="validated">VALIDATED</button>
+              <button class="filter-btn" data-filter="active">ACTIVE TESTING</button>
+              <button class="filter-btn" data-filter="iterating">ITERATING V2</button>
+            </div>
+          </div>
+
+          <div class="filter-group search-group">
+            <div class="search-input-wrapper">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="project-search-input" placeholder="Query by keyword, tech, or hypothesis..." class="lab-search-input" aria-label="Search Projects">
+            </div>
+          </div>
+        </div>
+
+        <!-- Projects Grid Container -->
+        <div class="projects-grid" id="projects-container">
+          
+          <!-- PROJECT 1 -->
+          <article class="project-exp-card glass-panel" data-status="validated" data-domain="ai systems" data-id="exp-401">
+            <div class="exp-card-header">
+              <div class="exp-meta">
+                <span class="exp-id">EXP-401 // CORE-AI</span>
+                <span class="exp-date">Q1 2026</span>
+              </div>
+              <div class="exp-status-badge badge-success">
+                <span class="badge-dot"></span> STATUS: VALIDATED
+              </div>
+            </div>
+
+            <div class="exp-banner-img">
+              <img src="assets/neural_network_bench.jpg" alt="ApexVector Neural Architecture Telemetry" loading="lazy">
+              <div class="banner-tag">FLAGSHIP SPECIMEN</div>
+            </div>
+
+            <div class="exp-card-body">
+              <h3 class="exp-title">ApexVector: Ultra-Low-Latency In-Memory Semantic Index</h3>
+              <p class="exp-brief">
+                High-performance SIMD-accelerated HNSW vector index designed for sub-millisecond retrieval on edge devices.
+              </p>
+
+              <!-- Problem, Hypothesis, Solution, Result Grid -->
+              <div class="scientific-breakdown">
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon red">&bull;</span> PROBLEM:</div>
+                  <div class="sci-desc">Existing cloud vector databases introduce 40-120ms round-trip latency and high per-query operational costs for client-side local LLM apps.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon yellow">&bull;</span> HYPOTHESIS:</div>
+                  <div class="sci-desc">Applying 8-bit scalar quantization with WebAssembly SIMD will reduce vector footprint by 75% while maintaining >96% recall accuracy and sub-5ms query times.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon blue">&bull;</span> SOLUTION:</div>
+                  <div class="sci-desc">Engineered an in-memory quantized graph indexing engine in Rust/C++ compiled to WASM with zero external dependencies and adaptive graph pruning.</div>
+                </div>
+
+                <div class="sci-item highlight-result">
+                  <div class="sci-title"><span class="sci-icon green">&bull;</span> RESULT & METRICS:</div>
+                  <div class="sci-desc">Achieved <strong>3.1ms average query latency</strong> on 250,000 vectors with <strong>97.4% recall</strong>. Memory consumption dropped from 380MB to 94MB. 450+ GitHub stars.</div>
+                </div>
+              </div>
+
+              <!-- Tech Stack Badges -->
+              <div class="exp-tech-stack">
+                <span class="tech-chip">Rust</span>
+                <span class="tech-chip">WebAssembly</span>
+                <span class="tech-chip">HNSW Graph</span>
+                <span class="tech-chip">SIMD</span>
+                <span class="tech-chip">TypeScript</span>
+              </div>
+            </div>
+
+            <div class="exp-card-footer">
+              <button class="btn btn-secondary btn-sm open-telemetry-btn" data-project="exp-401">
+                <span>INSPECT TELEMETRY</span>
+              </button>
+              <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source Code">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="#experiments" class="link-icon" title="Run in Sandbox">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project-exp-card glass-panel" data-status="active" data-domain="startups saas" data-id="exp-402">
+            <div class="exp-card-header">
+              <div class="exp-meta">
+                <span class="exp-id">EXP-402 // STARTUP-MVP</span>
+                <span class="exp-date">Q4 2025</span>
+              </div>
+              <div class="exp-status-badge badge-active">
+                <span class="badge-dot"></span> STATUS: ACTIVE TRIALS
+              </div>
+            </div>
+
+            <div class="exp-banner-img">
+              <img src="assets/incubation_chamber.jpg" alt="VenturePulse Innovation Pod" loading="lazy">
+              <div class="banner-tag">COMMERCIAL MVP</div>
+            </div>
+
+            <div class="exp-card-body">
+              <h3 class="exp-title">VenturePulse: AI Customer Discovery & Signal Analyzer</h3>
+              <p class="exp-brief">
+                Empirical user interview transcription and semantic pain-point extraction engine for early-stage B2B startup founders.
+              </p>
+
+              <div class="scientific-breakdown">
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon red">&bull;</span> PROBLEM:</div>
+                  <div class="sci-desc">Founders conduct dozen of customer interviews but suffer from cognitive bias and misinterpret willingness-to-pay signals.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon yellow">&bull;</span> HYPOTHESIS:</div>
+                  <div class="sci-desc">Real-time objection clustering and acoustic intent scoring will double founder accuracy in predicting pre-order commitments.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon blue">&bull;</span> SOLUTION:</div>
+                  <div class="sci-desc">Built a full-stack Next.js + FastAPI pipeline integrating Whisper speech-to-text with custom prompt-chaining and pain-frequency heatmaps.</div>
+                </div>
+
+                <div class="sci-item highlight-result">
+                  <div class="sci-title"><span class="sci-icon green">&bull;</span> RESULT & METRICS:</div>
+                  <div class="sci-desc">Piloted with <strong>18 collegiate founders</strong> across 140+ recorded calls. Identified 3 false-positive feature traps; 2 teams successfully pivoted to paying pilots.</div>
+                </div>
+              </div>
+
+              <div class="exp-tech-stack">
+                <span class="tech-chip">Next.js 14</span>
+                <span class="tech-chip">FastAPI</span>
+                <span class="tech-chip">PostgreSQL</span>
+                <span class="tech-chip">OpenAI / Claude APIs</span>
+                <span class="tech-chip">Tailwind CSS</span>
+              </div>
+            </div>
+
+            <div class="exp-card-footer">
+              <button class="btn btn-secondary btn-sm open-telemetry-btn" data-project="exp-402">
+                <span>INSPECT TELEMETRY</span>
+              </button>
+              <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source Code">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project-exp-card glass-panel" data-status="validated" data-domain="systems" data-id="exp-403">
+            <div class="exp-card-header">
+              <div class="exp-meta">
+                <span class="exp-id">EXP-403 // DISTRIBUTED</span>
+                <span class="exp-date">Q3 2025</span>
+              </div>
+              <div class="exp-status-badge badge-success">
+                <span class="badge-dot"></span> STATUS: VALIDATED
+              </div>
+            </div>
+
+            <div class="exp-card-body">
+              <h3 class="exp-title">SynapseMesh: Peer-to-Peer State Sync Engine</h3>
+              <p class="exp-brief">
+                Conflict-free Replicated Data Type (CRDT) engine over WebRTC data channels for decentralized real-time document collaboration.
+              </p>
+
+              <div class="scientific-breakdown">
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon red">&bull;</span> PROBLEM:</div>
+                  <div class="sci-desc">Centralized WebSocket coordination servers incur recurring cloud egress bills and introduce single-point-of-failure vulnerabilities for multi-user canvases.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon yellow">&bull;</span> HYPOTHESIS:</div>
+                  <div class="sci-desc">State-based CRDT delta updates over a DHT-routed WebRTC mesh can achieve convergence consistency with <15ms peer-to-peer sync time.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon blue">&bull;</span> SOLUTION:</div>
+                  <div class="sci-desc">Engineered an optimized Yjs-compatible delta sync protocol with automated NAT traversal and adaptive gossip fallback.</div>
+                </div>
+
+                <div class="sci-item highlight-result">
+                  <div class="sci-title"><span class="sci-icon green">&bull;</span> RESULT & METRICS:</div>
+                  <div class="sci-desc">Zero server compute required post-signaling. Successfully sustained <strong>64 simultaneous peers</strong> editing complex JSON trees with <strong>0% merge conflicts</strong>.</div>
+                </div>
+              </div>
+
+              <div class="exp-tech-stack">
+                <span class="tech-chip">TypeScript</span>
+                <span class="tech-chip">WebRTC</span>
+                <span class="tech-chip">CRDT (Yjs)</span>
+                <span class="tech-chip">Node.js</span>
+                <span class="tech-chip">STUN / TURN</span>
+              </div>
+            </div>
+
+            <div class="exp-card-footer">
+              <button class="btn btn-secondary btn-sm open-telemetry-btn" data-project="exp-403">
+                <span>INSPECT TELEMETRY</span>
+              </button>
+              <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source Code">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 4 -->
+          <article class="project-exp-card glass-panel" data-status="iterating" data-domain="ai systems" data-id="exp-404">
+            <div class="exp-card-header">
+              <div class="exp-meta">
+                <span class="exp-id">EXP-404 // AGENTIC</span>
+                <span class="exp-date">Q2 2026</span>
+              </div>
+              <div class="exp-status-badge badge-iterating">
+                <span class="badge-dot"></span> STATUS: ITERATING V2
+              </div>
+            </div>
+
+            <div class="exp-card-body">
+              <h3 class="exp-title">AutoSpec: Self-Healing Code Synthesis Harness</h3>
+              <p class="exp-brief">
+                Autonomous test-driven agent loop that writes unit tests, drafts implementations, and executes linting/repair cycles without human intervention.
+              </p>
+
+              <div class="scientific-breakdown">
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon red">&bull;</span> PROBLEM:</div>
+                  <div class="sci-desc">Single-pass LLM code generation fails on 38% of edge-case test suites due to hallucinations and syntax boundary omissions.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon yellow">&bull;</span> HYPOTHESIS:</div>
+                  <div class="sci-desc">A cyclic Critic-Verifier reflection loop with isolated AST sandbox execution will boost pass@1 rates by over 30 percentage points.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon blue">&bull;</span> SOLUTION:</div>
+                  <div class="sci-desc">Constructed a Docker-isolated Python orchestrator with tree-sitter AST validation and self-correcting traceback injection.</div>
+                </div>
+
+                <div class="sci-item highlight-result">
+                  <div class="sci-title"><span class="sci-icon green">&bull;</span> RESULT & METRICS:</div>
+                  <div class="sci-desc">HumanEval benchmark pass rate rose from <strong>61.2% to 89.6%</strong> on Python challenge problems within an average of 2.1 correction passes.</div>
+                </div>
+              </div>
+
+              <div class="exp-tech-stack">
+                <span class="tech-chip">Python</span>
+                <span class="tech-chip">Docker</span>
+                <span class="tech-chip">Tree-Sitter</span>
+                <span class="tech-chip">LangChain</span>
+                <span class="tech-chip">Pytest</span>
+              </div>
+            </div>
+
+            <div class="exp-card-footer">
+              <button class="btn btn-secondary btn-sm open-telemetry-btn" data-project="exp-404">
+                <span>INSPECT TELEMETRY</span>
+              </button>
+              <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source Code">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 5 -->
+          <article class="project-exp-card glass-panel" data-status="validated" data-domain="startups" data-id="exp-405">
+            <div class="exp-card-header">
+              <div class="exp-meta">
+                <span class="exp-id">EXP-405 // FINTECH-AI</span>
+                <span class="exp-date">Q2 2025</span>
+              </div>
+              <div class="exp-status-badge badge-success">
+                <span class="badge-dot"></span> STATUS: VALIDATED
+              </div>
+            </div>
+
+            <div class="exp-card-body">
+              <h3 class="exp-title">ZeroSplit: Smart Contract Micro-Grant Escrow</h3>
+              <p class="exp-brief">
+                Milestone-locked decentralized treasury dispenser for university hackathon teams and micro-grants with algorithmic juror voting.
+              </p>
+
+              <div class="scientific-breakdown">
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon red">&bull;</span> PROBLEM:</div>
+                  <div class="sci-desc">Student hackathons and incubator micro-grants suffer from opaque disbursement delays and milestone abandonment.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon yellow">&bull;</span> HYPOTHESIS:</div>
+                  <div class="sci-desc">Conditional cryptographic escrows with multi-sig proof-of-commit checks guarantee 100% milestone completion before funds release.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon blue">&bull;</span> SOLUTION:</div>
+                  <div class="sci-desc">Drafted gas-optimized Solidity smart contracts deployed on Ethereum L2 (Polygon/Base) with an intuitive Next.js student dashboard.</div>
+                </div>
+
+                <div class="sci-item highlight-result">
+                  <div class="sci-title"><span class="sci-icon green">&bull;</span> RESULT & METRICS:</div>
+                  <div class="sci-desc">Handled <strong>$8,500+ across 12 collegiate project tracks</strong> with zero lost gas or stalled disbursements. 98% participant satisfaction.</div>
+                </div>
+              </div>
+
+              <div class="exp-tech-stack">
+                <span class="tech-chip">Solidity</span>
+                <span class="tech-chip">Polygon L2</span>
+                <span class="tech-chip">Ethers.js</span>
+                <span class="tech-chip">Next.js</span>
+                <span class="tech-chip">Hardhat</span>
+              </div>
+            </div>
+
+            <div class="exp-card-footer">
+              <button class="btn btn-secondary btn-sm open-telemetry-btn" data-project="exp-405">
+                <span>INSPECT TELEMETRY</span>
+              </button>
+              <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source Code">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 6 -->
+          <article class="project-exp-card glass-panel" data-status="active" data-domain="iot systems" data-id="exp-406">
+            <div class="exp-card-header">
+              <div class="exp-meta">
+                <span class="exp-id">EXP-406 // IOT-EDGE</span>
+                <span class="exp-date">Q1 2026</span>
+              </div>
+              <div class="exp-status-badge badge-active">
+                <span class="badge-dot"></span> STATUS: ACTIVE TESTING
+              </div>
+            </div>
+
+            <div class="exp-card-body">
+              <h3 class="exp-title">AeroTelemetry: Edge Flight Logger for Micro-Drones</h3>
+              <p class="exp-brief">
+                ESP32 + MQTT telemetry hub with compressed flash buffer storing 9-DOF IMU dynamics during high-acceleration maneuvers.
+              </p>
+
+              <div class="scientific-breakdown">
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon red">&bull;</span> PROBLEM:</div>
+                  <div class="sci-desc">Wireless telemetry drops out during RF signal shading, causing catastrophic sensor data loss during autonomous drone flight tests.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon yellow">&bull;</span> HYPOTHESIS:</div>
+                  <div class="sci-desc">A cyclic ring-buffer with delta-compression on SPI flash can preserve 100% of high-G flight data with zero CPU bottleneck on dual-core microcontrollers.</div>
+                </div>
+
+                <div class="sci-item">
+                  <div class="sci-title"><span class="sci-icon blue">&bull;</span> SOLUTION:</div>
+                  <div class="sci-desc">Coded an asynchronous FreeRTOS driver with bit-packed delta encoding syncing over MQTT once WiFi re-connection is established.</div>
+                </div>
+
+                <div class="sci-item highlight-result">
+                  <div class="sci-title"><span class="sci-icon green">&bull;</span> RESULT & METRICS:</div>
+                  <div class="sci-desc">Logged over <strong>40 flight tests</strong> with <strong>0% packet loss</strong> despite intermittent RF deadzones. Data compression ratio reached 4.2:1.</div>
+                </div>
+              </div>
+
+              <div class="exp-tech-stack">
+                <span class="tech-chip">C++ / Embedded</span>
+                <span class="tech-chip">ESP32</span>
+                <span class="tech-chip">FreeRTOS</span>
+                <span class="tech-chip">MQTT</span>
+                <span class="tech-chip">Python Visualizer</span>
+              </div>
+            </div>
+
+            <div class="exp-card-footer">
+              <button class="btn btn-secondary btn-sm open-telemetry-btn" data-project="exp-406">
+                <span>INSPECT TELEMETRY</span>
+              </button>
+              <div class="footer-links">
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" title="View Source Code">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 4: SKILLS (APPARATUS & REAGENTS) ==================== -->
+    <section class="chamber-section" id="skills">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">04</span> // LABORATORY INSTRUMENTATION</div>
+          <h2 class="section-title">Skills, Apparatus & Chemical Stack</h2>
+          <p class="section-lead">The tools, languages, and technical reagents used to synthesize high-velocity experiments.</p>
+        </div>
+
+        <div class="skills-apparatus-grid">
+          
+          <!-- Category 1: Synthetics / Languages -->
+          <div class="apparatus-card glass-panel">
+            <div class="app-card-header">
+              <div class="app-title-box">
+                <span class="app-symbol">&Xi;</span>
+                <h3 class="app-cat-title">Core Synthetics (Languages)</h3>
+              </div>
+              <span class="app-badge">6 SYNTHESIZERS</span>
+            </div>
+            <div class="app-card-body">
+              
+              <div class="skill-meter-item" data-skill="TypeScript">
+                <div class="sm-header">
+                  <span class="sm-name">TypeScript / JavaScript</span>
+                  <span class="sm-pct">95%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 95%;"></div></div>
+                <span class="sm-desc">Full-stack, async event loops, type-safe APIs, Node & browser runtimes</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Python">
+                <div class="sm-header">
+                  <span class="sm-name">Python 3</span>
+                  <span class="sm-pct">92%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 92%;"></div></div>
+                <span class="sm-desc">PyTorch, FastAPI, data pipelines, vector benchmarks, scientific scripting</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Rust">
+                <div class="sm-header">
+                  <span class="sm-name">Rust / WASM</span>
+                  <span class="sm-pct">82%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 82%;"></div></div>
+                <span class="sm-desc">Memory safety, high-throughput parsing, SIMD algorithms, zero-cost abstractions</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="C++">
+                <div class="sm-header">
+                  <span class="sm-name">C / C++ (Embedded)</span>
+                  <span class="sm-pct">80%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 80%;"></div></div>
+                <span class="sm-desc">Microcontroller firmware, FreeRTOS, memory-mapped I/O, low-level efficiency</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="SQL">
+                <div class="sm-header">
+                  <span class="sm-name">SQL & Data Models</span>
+                  <span class="sm-pct">88%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 88%;"></div></div>
+                <span class="sm-desc">PostgreSQL, indexing strategies, vector extensions (pgvector), query tuning</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category 2: Reaction Vessels / Frameworks -->
+          <div class="apparatus-card glass-panel">
+            <div class="app-card-header">
+              <div class="app-title-box">
+                <span class="app-symbol">&Psi;</span>
+                <h3 class="app-cat-title">Reaction Vessels (Frameworks)</h3>
+              </div>
+              <span class="app-badge">MODERN ENGINES</span>
+            </div>
+            <div class="app-card-body">
+              
+              <div class="skill-meter-item" data-skill="React / Next.js">
+                <div class="sm-header">
+                  <span class="sm-name">React & Next.js 14/15</span>
+                  <span class="sm-pct">94%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 94%;"></div></div>
+                <span class="sm-desc">Server components, streaming SSR, optimized client state, responsive UX</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Node.js & Express">
+                <div class="sm-header">
+                  <span class="sm-name">Node.js & Bun Runtimes</span>
+                  <span class="sm-pct">90%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 90%;"></div></div>
+                <span class="sm-desc">High-throughput microservices, WebSocket engines, worker threads</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="FastAPI">
+                <div class="sm-header">
+                  <span class="sm-name">FastAPI & Pydantic</span>
+                  <span class="sm-pct">92%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 92%;"></div></div>
+                <span class="sm-desc">Asynchronous AI microservices, OpenAPI auto-schemas, high RPS</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Tailwind & CSS3">
+                <div class="sm-header">
+                  <span class="sm-name">Modern CSS & Canvas</span>
+                  <span class="sm-pct">93%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 93%;"></div></div>
+                <span class="sm-desc">Custom CSS design tokens, WebGL / Canvas animations, glassmorphism</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="PyTorch">
+                <div class="sm-header">
+                  <span class="sm-name">PyTorch & HuggingFace</span>
+                  <span class="sm-pct">84%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 84%;"></div></div>
+                <span class="sm-desc">Fine-tuning, LoRA adapters, tokenizer pipelines, embedding extraction</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category 3: Diagnostic & Deployment Chambers (Infra) -->
+          <div class="apparatus-card glass-panel">
+            <div class="app-card-header">
+              <div class="app-title-box">
+                <span class="app-symbol">&Omega;</span>
+                <h3 class="app-cat-title">Diagnostic & Cloud Chambers</h3>
+              </div>
+              <span class="app-badge">DEVOPS & INFRA</span>
+            </div>
+            <div class="app-card-body">
+              
+              <div class="skill-meter-item" data-skill="Docker">
+                <div class="sm-header">
+                  <span class="sm-name">Docker & Containerization</span>
+                  <span class="sm-pct">89%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 89%;"></div></div>
+                <span class="sm-desc">Multi-stage builds, rootless sandbox runtimes, compose clusters</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Git & CI/CD">
+                <div class="sm-header">
+                  <span class="sm-name">Git & GitHub Actions</span>
+                  <span class="sm-pct">94%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 94%;"></div></div>
+                <span class="sm-desc">Automated testing, linting pipelines, release harnesses, semantic tagging</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Cloud & Edge">
+                <div class="sm-header">
+                  <span class="sm-name">Cloud & Edge (AWS / Vercel)</span>
+                  <span class="sm-pct">86%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 86%;"></div></div>
+                <span class="sm-desc">Edge workers, S3 object storage, serverless functions, Cloudflare CDN</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Redis & Kafka">
+                <div class="sm-header">
+                  <span class="sm-name">Redis & Message Queues</span>
+                  <span class="sm-pct">85%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 85%;"></div></div>
+                <span class="sm-desc">Pub/sub messaging, distributed caching, rate-limiting, job workers</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Linux">
+                <div class="sm-header">
+                  <span class="sm-name">Linux Systems & Shell</span>
+                  <span class="sm-pct">91%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 91%;"></div></div>
+                <span class="sm-desc">Bash scripting, performance monitoring, process isolation, networking</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category 4: Lab Protocols / Startup Methodologies -->
+          <div class="apparatus-card glass-panel">
+            <div class="app-card-header">
+              <div class="app-title-box">
+                <span class="app-symbol">&Delta;</span>
+                <h3 class="app-cat-title">Lab Protocols & Startup Ops</h3>
+              </div>
+              <span class="app-badge">METHODOLOGIES</span>
+            </div>
+            <div class="app-card-body">
+              
+              <div class="skill-meter-item" data-skill="Hypothesis Development">
+                <div class="sm-header">
+                  <span class="sm-name">Hypothesis-Driven Development</span>
+                  <span class="sm-pct">98%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 98%;"></div></div>
+                <span class="sm-desc">Framing product code as empirical experiments with quantifiable KPIs</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Lean MVP Prototyping">
+                <div class="sm-header">
+                  <span class="sm-name">Rapid MVP Prototyping</span>
+                  <span class="sm-pct">95%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 95%;"></div></div>
+                <span class="sm-desc">Transforming abstract concepts into working demos within 48 to 72 hours</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Customer Discovery">
+                <div class="sm-header">
+                  <span class="sm-name">Customer Discovery & Validation</span>
+                  <span class="sm-pct">90%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 90%;"></div></div>
+                <span class="sm-desc">The Mom Test methodology, user interview analysis, willingness-to-pay tests</span>
+              </div>
+
+              <div class="skill-meter-item" data-skill="Benchmarking & Profiling">
+                <div class="sm-header">
+                  <span class="sm-name">Performance Benchmarking</span>
+                  <span class="sm-pct">89%</span>
+                </div>
+                <div class="sm-bar"><div class="sm-fill" style="width: 89%;"></div></div>
+                <span class="sm-desc">Flamegraphs, load simulation, memory profiling, latency distribution analysis</span>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 5: RESEARCH INTERESTS ==================== -->
+    <section class="chamber-section" id="research">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">05</span> // FRONTIER INQUIRY</div>
+          <h2 class="section-title">Research Interests & Theoretical Theses</h2>
+          <p class="section-lead">The intellectual frontiers and open scientific questions currently being probed in this laboratory.</p>
+        </div>
+
+        <div class="research-grid">
+          
+          <!-- Research Topic 1 -->
+          <div class="research-card glass-panel">
+            <div class="rc-header">
+              <div class="rc-tag">INQUIRY 01 // AI ARCHITECTURE</div>
+              <span class="rc-status-pill text-cyan">ACTIVE STUDY</span>
+            </div>
+            <h3 class="rc-title">Decentralized & On-Device Small Language Models (SLMs)</h3>
+            <p class="rc-thesis">
+              <strong>Core Thesis:</strong> As edge silicon compute densities increase, fine-tuned sub-3B parameter models quantized to 3-bit / 4-bit representation can achieve parity with large frontier models on domain-specific reasoning while preserving 100% privacy and zero latency overhead.
+            </p>
+            <div class="rc-investigations">
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Benchmarking BitNet b1.58 1-bit quantization for mobile edge devices</span>
+              </div>
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Speculative decoding architectures using local draft models</span>
+              </div>
+            </div>
+            <div class="rc-footer">
+              <span class="rc-ref">LITERATURE: Vaswani et al., Dettmers et al. (QLoRA)</span>
+            </div>
+          </div>
+
+          <!-- Research Topic 2 -->
+          <div class="research-card glass-panel">
+            <div class="rc-header">
+              <div class="rc-tag">INQUIRY 02 // DISTRIBUTED SYSTEMS</div>
+              <span class="rc-status-pill text-cyan">ACTIVE STUDY</span>
+            </div>
+            <h3 class="rc-title">Zero-Server State Convergence & CRDT Topologies</h3>
+            <p class="rc-thesis">
+              <strong>Core Thesis:</strong> Traditional client-server cloud topologies introduce unnecessary cost and surveillance choke points. Hybrid state-based CRDTs coupled with direct browser-to-browser WebRTC meshes can sustain collaborative computing without centralized coordinator nodes.
+            </p>
+            <div class="rc-investigations">
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Optimizing delta-state serialization overhead in gossip protocols</span>
+              </div>
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Byzantine fault tolerance in decentralized student collaboration networks</span>
+              </div>
+            </div>
+            <div class="rc-footer">
+              <span class="rc-ref">LITERATURE: Shapiro et al. (CRDTs), Kleppmann (Local-First Software)</span>
+            </div>
+          </div>
+
+          <!-- Research Topic 3 -->
+          <div class="research-card glass-panel">
+            <div class="rc-header">
+              <div class="rc-tag">INQUIRY 03 // VENTURE SCIENCE</div>
+              <span class="rc-status-pill text-cyan">ACTIVE STUDY</span>
+            </div>
+            <h3 class="rc-title">Algorithmic Product-Market Fit & Automated Discovery</h3>
+            <p class="rc-thesis">
+              <strong>Core Thesis:</strong> Early customer validation can be treated as a stochastic optimization problem. By measuring semantic entropy in user objections, founders can programmatically calculate product-market fit velocity before deploying capital.
+            </p>
+            <div class="rc-investigations">
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Synthetic buyer persona simulations vs empirical human transcripts</span>
+              </div>
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Quantitative scoring models for SaaS willingness-to-pay elasticity</span>
+              </div>
+            </div>
+            <div class="rc-footer">
+              <span class="rc-ref">LITERATURE: Blank & Dorf, Ries (Lean Startup), Christensen (Jobs to be Done)</span>
+            </div>
+          </div>
+
+          <!-- Research Topic 4 -->
+          <div class="research-card glass-panel">
+            <div class="rc-header">
+              <div class="rc-tag">INQUIRY 04 // HUMAN-MACHINE INTERACTION</div>
+              <span class="rc-status-pill text-cyan">ACTIVE STUDY</span>
+            </div>
+            <h3 class="rc-title">Ultra-Low-Latency Reactive HUDs & Cognitive Flow</h3>
+            <p class="rc-thesis">
+              <strong>Core Thesis:</strong> Interfaces with interaction latency under 16ms induce a state of cognitive flow where software feels like a direct physical extension of human thought. Building GPU-accelerated canvas interfaces unlocks superhuman productivity.
+            </p>
+            <div class="rc-investigations">
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Predictive cursor pre-fetching using linear Kalman filters</span>
+              </div>
+              <div class="inv-item">
+                <span class="inv-bullet">&rsaquo;</span>
+                <span>Audio-visual feedback synchronization in developer tools</span>
+              </div>
+            </div>
+            <div class="rc-footer">
+              <span class="rc-ref">LITERATURE: Miller (Response Time in UI), Engelbart (Augmenting Human Intellect)</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 6: IDEAS (INCUBATION CHAMBER) ==================== -->
+    <section class="chamber-section" id="ideas">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">06</span> // INCUBATION CHAMBER</div>
+          <h2 class="section-title">Startup Ideas & Innovation Backlog</h2>
+          <p class="section-lead">
+            Early-stage concepts currently undergoing market discovery, technical feasibility modeling, or pilot partner recruitment.
+          </p>
+        </div>
+
+        <div class="ideas-grid">
+          
+          <!-- IDEA 1 -->
+          <div class="idea-card glass-panel" data-idea-id="idea-pulse">
+            <div class="idea-top-row">
+              <span class="idea-stage-badge">STAGE: PROTOTYPING MVP</span>
+              <div class="vote-control">
+                <button class="upvote-btn" data-id="idea-pulse" title="Vote for this experiment to be prioritized" aria-label="Upvote this idea">
+                  <span class="upvote-arrow">&uarr;</span>
+                  <span class="upvote-count">48</span>
+                </button>
+              </div>
+            </div>
+
+            <h3 class="idea-title">HyperTrace: Distributed Edge Observability for Next.js Server Actions</h3>
+            <p class="idea-problem">
+              <strong>Target Friction:</strong> Serverless edge execution makes tracking cascaded database queries and memory spikes notoriously difficult without heavy enterprise APM bills.
+            </p>
+            <p class="idea-hypo">
+              <strong>Testable Hypothesis:</strong> A zero-dependency 4KB tracer using Web Streams API can log end-to-end execution paths with <0.5ms overhead at 90% lower operational cost than Datadog.
+            </p>
+
+            <div class="idea-viability-row">
+              <div class="viability-item">
+                <span class="vi-title">FEASIBILITY</span>
+                <span class="vi-score text-cyan">94%</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">MARKET TAM</span>
+                <span class="vi-score text-emerald">$1.8B</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">TIMELINE</span>
+                <span class="vi-score">2 WEEKS</span>
+              </div>
+            </div>
+
+            <div class="idea-footer">
+              <button class="btn btn-secondary btn-sm request-collab-btn" data-idea="HyperTrace">
+                <span>REQUEST PILOT ACCESS</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- IDEA 2 -->
+          <div class="idea-card glass-panel" data-idea-id="idea-mentor">
+            <div class="idea-top-row">
+              <span class="idea-stage-badge">STAGE: MARKET DISCOVERY</span>
+              <div class="vote-control">
+                <button class="upvote-btn" data-id="idea-mentor" title="Vote for this experiment to be prioritized" aria-label="Upvote this idea">
+                  <span class="upvote-arrow">&uarr;</span>
+                  <span class="upvote-count">62</span>
+                </button>
+              </div>
+            </div>
+
+            <h3 class="idea-title">CodeMentor AI: Real-Time Pair Programming Voice Agent for Students</h3>
+            <p class="idea-problem">
+              <strong>Target Friction:</strong> Engineering students spend hours stuck on trivial compile errors or debugging loops because campus lab TAs are unavailable outside class hours.
+            </p>
+            <p class="idea-hypo">
+              <strong>Testable Hypothesis:</strong> A low-latency conversational voice agent listening to terminal output can guide students via Socratic questioning rather than just spoonfeeding answers.
+            </p>
+
+            <div class="idea-viability-row">
+              <div class="viability-item">
+                <span class="vi-title">FEASIBILITY</span>
+                <span class="vi-score text-cyan">88%</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">MARKET TAM</span>
+                <span class="vi-score text-emerald">$600M</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">TIMELINE</span>
+                <span class="vi-score">3 WEEKS</span>
+              </div>
+            </div>
+
+            <div class="idea-footer">
+              <button class="btn btn-secondary btn-sm request-collab-btn" data-idea="CodeMentor AI">
+                <span>JOIN WAITLIST</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- IDEA 3 -->
+          <div class="idea-card glass-panel" data-idea-id="idea-solobridge">
+            <div class="idea-top-row">
+              <span class="idea-stage-badge">STAGE: PRE-SEED EXPLORATION</span>
+              <div class="vote-control">
+                <button class="upvote-btn" data-id="idea-solobridge" title="Vote for this experiment to be prioritized" aria-label="Upvote this idea">
+                  <span class="upvote-arrow">&uarr;</span>
+                  <span class="upvote-count">39</span>
+                </button>
+              </div>
+            </div>
+
+            <h3 class="idea-title">MicroVenture: Autonomous A/B Test Engine for Solo Founders</h3>
+            <p class="idea-problem">
+              <strong>Target Friction:</strong> Solo technical founders build great prototypes but lack marketing bandwidth to continuously generate, test, and score value proposition copy.
+            </p>
+            <p class="idea-hypo">
+              <strong>Testable Hypothesis:</strong> Dynamic landing page morphing based on inbound referral keywords will lift cold visitor conversion rates by at least 25% without human design overhead.
+            </p>
+
+            <div class="idea-viability-row">
+              <div class="viability-item">
+                <span class="vi-title">FEASIBILITY</span>
+                <span class="vi-score text-cyan">91%</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">MARKET TAM</span>
+                <span class="vi-score text-emerald">$950M</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">TIMELINE</span>
+                <span class="vi-score">4 WEEKS</span>
+              </div>
+            </div>
+
+            <div class="idea-footer">
+              <button class="btn btn-secondary btn-sm request-collab-btn" data-idea="MicroVenture">
+                <span>CO-FOUND / COLLABORATE</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- IDEA 4 -->
+          <div class="idea-card glass-panel" data-idea-id="idea-bio">
+            <div class="idea-top-row">
+              <span class="idea-stage-badge">STAGE: THEORETICAL BLUEPRINT</span>
+              <div class="vote-control">
+                <button class="upvote-btn" data-id="idea-bio" title="Vote for this experiment to be prioritized" aria-label="Upvote this idea">
+                  <span class="upvote-arrow">&uarr;</span>
+                  <span class="upvote-count">55</span>
+                </button>
+              </div>
+            </div>
+
+            <h3 class="idea-title">LocalShield: Zero-Knowledge Browser AI Guardrails</h3>
+            <p class="idea-problem">
+              <strong>Target Friction:</strong> Enterprise employees fear pasting proprietary code into web AI interfaces due to data leak regulations and compliance fines.
+            </p>
+            <p class="idea-hypo">
+              <strong>Testable Hypothesis:</strong> A browser extension running on-device regex & miniature NER models can sanitize PII and API secrets before network dispatch with zero latency degradation.
+            </p>
+
+            <div class="idea-viability-row">
+              <div class="viability-item">
+                <span class="vi-title">FEASIBILITY</span>
+                <span class="vi-score text-cyan">87%</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">MARKET TAM</span>
+                <span class="vi-score text-emerald">$3.2B</span>
+              </div>
+              <div class="viability-item">
+                <span class="vi-title">TIMELINE</span>
+                <span class="vi-score">1 MONTH</span>
+              </div>
+            </div>
+
+            <div class="idea-footer">
+              <button class="btn btn-secondary btn-sm request-collab-btn" data-idea="LocalShield">
+                <span>DISCUSS ARCHITECTURE</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 7: FUTURE EXPERIMENTS (HORIZON) ==================== -->
+    <section class="chamber-section" id="future">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">07</span> // HORIZON & EXPERIMENT QUEUE</div>
+          <h2 class="section-title">Future Experiments & Research Roadmap</h2>
+          <p class="section-lead">The empirical queue scheduled for execution as facility capabilities and silicon hardware expand.</p>
+        </div>
+
+        <div class="timeline-horizon">
+          
+          <!-- Roadmap Item 1 -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <span class="marker-pulse"></span>
+              <span class="marker-dot"></span>
+            </div>
+            <div class="entry-card glass-panel">
+              <div class="entry-header">
+                <span class="entry-timeframe">Q3 2026 // SCHEDULED</span>
+                <span class="entry-id">EXP-701</span>
+              </div>
+              <h3 class="entry-title">Sub-10ms Speculative Decoding on RISC-V Silicon</h3>
+              <p class="entry-desc">
+                Deploying custom draft models to micro-RISC-V cores to verify if speculative inference acceleration delivers viable battery efficiency on mobile robotic platforms.
+              </p>
+              <div class="entry-hypo">
+                <strong>Hypothesis:</strong> Multi-tiered token speculation will double effective token generation speeds while consuming under 5W power.
+              </div>
+              <div class="entry-milestones">
+                <span class="m-chip">&bull; Toolchain Setup</span>
+                <span class="m-chip">&bull; Quantization Pipeline</span>
+                <span class="m-chip">&bull; Power Benchmarking</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Item 2 -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <span class="marker-dot"></span>
+            </div>
+            <div class="entry-card glass-panel">
+              <div class="entry-header">
+                <span class="entry-timeframe">Q4 2026 // SCHEDULED</span>
+                <span class="entry-id">EXP-702</span>
+              </div>
+              <h3 class="entry-title">Autonomous Micro-SaaS Agent with Dynamic Self-Healing</h3>
+              <p class="entry-desc">
+                Constructing an autonomous software agent capable of deploying a verified micro-service, monitoring user churn signals, and executing automated code patches to fix funnel drop-offs.
+              </p>
+              <div class="entry-hypo">
+                <strong>Hypothesis:</strong> Closed-loop agent feedback using live session analytics can resolve UX friction points with 0 human intervention.
+              </div>
+              <div class="entry-milestones">
+                <span class="m-chip">&bull; Synthetic Telemetry Engine</span>
+                <span class="m-chip">&bull; Automated Git Patching</span>
+                <span class="m-chip">&bull; Sandbox Verification</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Item 3 -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <span class="marker-dot"></span>
+            </div>
+            <div class="entry-card glass-panel">
+              <div class="entry-header">
+                <span class="entry-timeframe">Q1 2027 // PROSPECTIVE</span>
+                <span class="entry-id">EXP-703</span>
+              </div>
+              <h3 class="entry-title">Decentralized WebRTC State Consensus on Zero-Gas L2</h3>
+              <p class="entry-desc">
+                Testing whether state checkpoints across thousands of ephemeral peer nodes can be committed to zero-gas optimistic rollups without latency penalties.
+              </p>
+              <div class="entry-hypo">
+                <strong>Hypothesis:</strong> Batched cryptographic commitments can reduce state verification costs to $0.00001 per participant session.
+              </div>
+              <div class="entry-milestones">
+                <span class="m-chip">&bull; Cryptographic Tree Architecture</span>
+                <span class="m-chip">&bull; Smart Contract Auditing</span>
+                <span class="m-chip">&bull; Testnet Stress Trials</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Roadmap Item 4 -->
+          <div class="timeline-entry">
+            <div class="entry-marker">
+              <span class="marker-dot"></span>
+            </div>
+            <div class="entry-card glass-panel">
+              <div class="entry-header">
+                <span class="entry-timeframe">Q2 2027 // PROSPECTIVE</span>
+                <span class="entry-id">EXP-704</span>
+              </div>
+              <h3 class="entry-title">Neural Interface Signal Filter for Direct Code Navigation</h3>
+              <p class="entry-desc">
+                Exploring consumer EEG signal decoding to trigger instantaneous context-switching in IDEs and visual code graphs based on mental focus spikes.
+              </p>
+              <div class="entry-hypo">
+                <strong>Hypothesis:</strong> Steady-State Visual Evoked Potentials (SSVEP) can reduce IDE file navigation latency by 40% compared to keyboard shortcuts.
+              </div>
+              <div class="entry-milestones">
+                <span class="m-chip">&bull; Hardware Interfacing</span>
+                <span class="m-chip">&bull; Real-time FFT DSP</span>
+                <span class="m-chip">&bull; Ergonomic Testing</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Propose an Experiment Interactive Card -->
+        <div class="propose-exp-box glass-panel">
+          <div class="propose-grid">
+            <div class="propose-info">
+              <h3 class="propose-title">Propose a Hypothesis to the Laboratory</h3>
+              <p class="propose-desc">
+                Have a challenging engineering bottleneck, a bold startup thesis, or an algorithmic question? Submit your hypothesis directly to the queue for peer investigation.
+              </p>
+            </div>
+            <div class="propose-action">
+              <button class="btn btn-primary" id="btn-open-hypothesis-modal">
+                <span class="btn-glow"></span>
+                <span>SUBMIT HYPOTHESIS &rarr;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== TRANSMISSION CHAMBER (CONTACT & UPLINK) ==================== -->
+    <section class="chamber-section" id="contact">
+      <div class="chamber-container">
+        
+        <div class="section-header">
+          <div class="section-tag"><span class="tag-num">08</span> // COMMUNICATIONS PROTOCOL</div>
+          <h2 class="section-title">Transmit Signal & Collaborate</h2>
+          <p class="section-lead">Establish a high-frequency communications uplink for startup co-founding, engineering roles, or research inquiries.</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Terminal Contact Form -->
+          <div class="terminal-panel glass-panel">
+            <div class="panel-header">
+              <span class="panel-title-text">SECURE TRANSMISSION CONSOLE</span>
+              <span class="panel-badge">ENCRYPTION: ACTIVE</span>
+            </div>
+            <div class="panel-content">
+              
+              <form id="transmission-form" class="transmission-form" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="comm-name" class="form-lbl">CALLSIGN / NAME:</label>
+                    <input type="text" id="comm-name" class="form-input" placeholder="e.g. Dr. Alex Mercer / Tech Lead" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="comm-email" class="form-lbl">UPLINK FREQUENCY / EMAIL:</label>
+                    <input type="email" id="comm-email" class="form-input" placeholder="e.g. alex@frontier-ventures.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="comm-purpose" class="form-lbl">COMMUNICATION VECTOR:</label>
+                  <select id="comm-purpose" class="form-input lab-select">
+                    <option value="startup-collab">Startup Co-Founding & MVP Building</option>
+                    <option value="job-role">Engineering Role / Internship Inquiry</option>
+                    <option value="research-inquiry">Academic / Open-Source Collaboration</option>
+                    <option value="feedback">Hypothesis Critique & Technical Feedback</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="comm-message" class="form-lbl">TRANSMISSION PAYLOAD (MESSAGE):</label>
+                  <textarea id="comm-message" rows="4" class="form-input form-textarea" placeholder="Detail your project, hypothesis, or proposal..." required></textarea>
+                </div>
+
+                <div class="form-submit-row">
+                  <button type="submit" class="btn btn-primary" id="btn-transmit">
+                    <span class="btn-glow"></span>
+                    <span id="transmit-btn-label">TRANSMIT TO LABORATORY</span>
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  </button>
+                  <div class="transmission-status" id="transmission-status"></div>
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+          <!-- Direct Channels & Uplinks -->
+          <div class="uplink-info-panel glass-panel">
+            <div class="panel-header">
+              <span class="panel-title-text">DIRECT FREQUENCIES & CREDENTIALS</span>
+              <span class="panel-badge">STATUS: MONITORING</span>
+            </div>
+            <div class="panel-content">
+              
+              <div class="uplink-item">
+                <div class="uplink-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </div>
+                <div class="uplink-details">
+                  <span class="up-label">PRIMARY TRANSMISSION CHANNEL:</span>
+                  <a href="mailto:arjun.lab@innovation.dev" class="up-val link-highlight">arjun.lab@innovation.dev</a>
+                </div>
+              </div>
+
+              <div class="uplink-item">
+                <div class="uplink-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </div>
+                <div class="uplink-details">
+                  <span class="up-label">OPEN SOURCE REPOSITORY:</span>
+                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="up-val link-highlight">github.com/arjun-innovates</a>
+                </div>
+              </div>
+
+              <div class="uplink-item">
+                <div class="uplink-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </div>
+                <div class="uplink-details">
+                  <span class="up-label">PROFESSIONAL DOSSIER:</span>
+                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="up-val link-highlight">linkedin.com/in/arjun-mehta-lab</a>
+                </div>
+              </div>
+
+              <div class="uplink-item">
+                <div class="uplink-icon">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                </div>
+                <div class="uplink-details">
+                  <span class="up-label">PUBLIC DISPATCH / X:</span>
+                  <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="up-val link-highlight">@arjun_codes</a>
+                </div>
+              </div>
+
+              <!-- Quick Security Verification Hash -->
+              <div class="security-hash-box">
+                <div class="sh-title">GPG VERIFICATION FINGERPRINT:</div>
+                <div class="sh-hash">7E89 42D1 B84C 901E 332A 6F05 D274 C891 93BB F022</div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== LABORATORY FOOTER ==================== -->
+  <footer class="lab-footer">
+    <div class="footer-container">
+      <div class="footer-brand-col">
+        <div class="footer-brand-title">ARJUN MEHTA // INNOVATION LABORATORY</div>
+        <p class="footer-brand-desc">
+          Empirical engineering, AI workflows, and lean startup ventures. Designed with high-performance CSS and interactive canvas telemetry.
+        </p>
+      </div>
+
+      <div class="footer-stats-col">
+        <div class="f-stat"><span class="f-num">v3.8</span> ENGINE RELEASE</div>
+        <div class="f-stat"><span class="f-num">0.00%</span> VENDOR LOCK-IN</div>
+        <div class="f-stat"><span class="f-num">100%</span> OPEN INQUIRY</div>
+      </div>
+
+      <div class="footer-bottom-row">
+        <div class="footer-copy">&copy; 2026 Arjun Mehta. Built for high-velocity innovation. All experiments documented in public.</div>
+        <a href="#hero" class="back-to-top" id="back-to-top-btn" aria-label="Return to Hero Chamber">
+          <span>RETURN TO APEX</span> &uarr;
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== FLOATING INTERACTIVE CLI TERMINAL DRAWER ==================== -->
+  <div class="lab-cli-drawer" id="lab-cli-drawer" aria-hidden="true">
+    <div class="cli-topbar">
+      <div class="cli-dots">
+        <span class="cli-dot red"></span>
+        <span class="cli-dot yellow"></span>
+        <span class="cli-dot green"></span>
+      </div>
+      <div class="cli-title">ARJUN.LAB // INTERACTIVE TERMINAL v1.0.4</div>
+      <button class="cli-close-btn" id="cli-close-btn" aria-label="Close Terminal">&times;</button>
+    </div>
+    <div class="cli-screen" id="cli-screen">
+      <div class="cli-welcome-text">
+        <pre class="cli-ascii">
+    ___    ____     __ __  ___   _   __   __    ___    ____ 
+   /   |  / __ \   / // / /   | / | / /  / /   /   |  / __ )
+  / /| | / /_/ /  / // /_/ /| |/  |/ /  / /   / /| | / __  |
+ / ___ |/ _, _/  / __  // ___ / /|  /  / /___/ ___ |/ /_/ / 
+/_/  |_/_/ |_|  /_/ /_//_/  |/_/ |_/  /_____/_/  |_/_____/  
+        </pre>
+        <p>Connected to Personal Innovation Laboratory Console.</p>
+        <p>Type <span class="cli-keyword">'help'</span> to inspect available commands or <span class="cli-keyword">'projects'</span> to list specimens.</p>
+      </div>
+      <div id="cli-output-history"></div>
+      <div class="cli-input-line">
+        <span class="cli-prompt">visitor@lab-node:~$</span>
+        <input type="text" id="cli-input" class="cli-input" autofocus autocomplete="off" spellcheck="false" aria-label="Terminal command input">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== TELEMETRY DOSSIER MODAL ==================== -->
+  <div class="lab-modal-backdrop" id="telemetry-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-project-title">
+    <div class="lab-modal-dialog glass-panel">
+      <div class="modal-header">
+        <div class="modal-id-row">
+          <span class="modal-id-badge" id="modal-project-id">EXP-401 // TELEMETRY</span>
+          <span class="modal-status-badge text-emerald" id="modal-project-status">STATUS: VALIDATED</span>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="modal-body" id="modal-body-content">
+        <h2 class="modal-project-title" id="modal-project-title">Project Title</h2>
+        <div class="modal-specimen-grid">
+          <div class="modal-diagram-box">
+            <div class="diagram-label">ARCHITECTURE TELEMETRY READOUT:</div>
+            <pre class="telemetry-code" id="modal-architecture-code">
++---------------------+     +----------------------+     +---------------------+
+| Client Memory Space | --> | SIMD Quantizer Graph | --> | WASM Execution Core |
++---------------------+     +----------------------+     +---------------------+
+                                       |
+                                       v
+                            [ Sub-3.1ms Response ]
+            </pre>
+          </div>
+
+          <div class="modal-metrics-table">
+            <div class="mm-row">
+              <span class="mm-k">PRIMARY METRIC:</span>
+              <span class="mm-v text-cyan" id="modal-primary-metric">3.1ms Latency</span>
+            </div>
+            <div class="mm-row">
+              <span class="mm-k">DATASET / SAMPLE SIZE:</span>
+              <span class="mm-v" id="modal-sample-size">250,000 Embeddings</span>
+            </div>
+            <div class="mm-row">
+              <span class="mm-k">BENCHMARK PLATFORM:</span>
+              <span class="mm-v" id="modal-platform">Node.js + WebAssembly v8</span>
+            </div>
+            <div class="mm-row">
+              <span class="mm-k">ERROR MARGIN:</span>
+              <span class="mm-v text-emerald" id="modal-error-margin">&plusmn;0.08ms</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-deep-notes">
+          <h4 class="mdn-title">SCIENTIFIC OBSERVATION LOGS:</h4>
+          <p id="modal-notes-text">
+            Extensive stress testing revealed that scalar quantization reduces cache thrashing by over 68% compared to uncompressed 32-bit floating point buffers.
+          </p>
+        </div>
+
+        <div class="modal-actions-row">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="modal-repo-link">
+            <span>EXPLORE GITHUB CODE</span>
+          </a>
+          <button class="btn btn-secondary btn-sm" id="modal-dismiss-btn">
+            <span>CLOSE TELEMETRY</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PROPOSE HYPOTHESIS MODAL ==================== -->
+  <div class="lab-modal-backdrop" id="hypothesis-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="hypo-modal-title">
+    <div class="lab-modal-dialog glass-panel">
+      <div class="modal-header">
+        <div class="modal-id-row">
+          <span class="modal-id-badge">QUEUE ENTRY // PROTOCOL-799</span>
+          <span class="modal-status-badge text-cyan">AWAITING SUBMISSION</span>
+        </div>
+        <button class="modal-close-btn" id="hypo-modal-close-btn" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <h2 class="modal-project-title" id="hypo-modal-title">Propose a Scientific Hypothesis</h2>
+        <p class="section-lead">Submit an experiment idea for this lab to investigate, benchmark, or prototype.</p>
+
+        <form id="hypothesis-proposal-form" class="transmission-form">
+          <div class="form-group">
+            <label for="hypo-author" class="form-lbl">PROPOSER CALLSIGN / NAME:</label>
+            <input type="text" id="hypo-author" class="form-input" placeholder="e.g. Dr. Maya Patel" required>
+          </div>
+          <div class="form-group">
+            <label for="hypo-domain" class="form-lbl">INVESTIGATION DOMAIN:</label>
+            <select id="hypo-domain" class="form-input lab-select">
+              <option value="ai">AI / Small Language Models</option>
+              <option value="systems">Distributed Systems & CRDTs</option>
+              <option value="startups">Startup Product Hypothesis / MVP</option>
+              <option value="hardware">Embedded IoT & Robotics</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="hypo-statement" class="form-lbl">HYPOTHESIS STATEMENT (IF... THEN... BECAUSE...):</label>
+            <textarea id="hypo-statement" rows="3" class="form-input form-textarea" placeholder="e.g. If we cache token embeddings in Web Worker SharedArrayBuffer, then TTFT decreases by 30% because..." required></textarea>
+          </div>
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary">
+              <span class="btn-glow"></span>
+              <span>SUBMIT TO LAB QUEUE</span>
+            </button>
+            <div id="hypo-status-msg" class="transmission-status"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
